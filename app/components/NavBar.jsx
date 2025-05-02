@@ -1,6 +1,8 @@
 import logo from '@/assets/images/logo-white.png';
 import Image from 'next/image';
 import profileDefault from '@/assets/images/profile.png';
+import Link from 'next/link';
+
 const NavBar = () => {
  return ( 
   <>
@@ -39,7 +41,7 @@ const NavBar = () => {
             className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
           >
             {/* <!-- Logo --> */}
-            <a className="flex flex-shrink-0 items-center" href="/index.html">
+            <Link className="flex flex-shrink-0 items-center" href="/index.html">
               <Image
                 className="h-10 w-auto"
                 src={logo}
@@ -49,24 +51,24 @@ const NavBar = () => {
               <span className="hidden md:block text-white text-2xl font-bold ml-2"
                 >PropertyPulse</span
               >
-            </a>
+            </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className="hidden md:ml-6 md:block">
               <div className="flex space-x-2">
-                <a
+                <Link
                   href="/index.html"
                   className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >Home</a
+                  >Home</Link
                 >
-                <a
+                <Link
                   href="/properties.html"
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >Properties</a
+                  >Properties</Link
                 >
-                <a
+                <Link
                   href="/add-property.html"
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >Add Property</a
+                  >Add Property</Link
                 >
               </div>
             </div>
@@ -88,7 +90,7 @@ const NavBar = () => {
           <div
             className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0"
           >
-            <a href="messages.html" className="relative group">
+            <Link href="messages.html" className="relative group">
               <button
                 type="button"
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -116,7 +118,7 @@ const NavBar = () => {
                 2
                 {/* <!-- Replace with the actual number of notifications --> */}
               </span>
-            </a>
+            </Link>
             {/* <!-- Profile dropdown button --> */}
             <div className="relative ml-3">
               <div>
@@ -146,21 +148,21 @@ const NavBar = () => {
                 aria-labelledby="user-menu-button"
                 tabIndex="-1"
               >
-                <a
+                <Link
                   href="/profile.html"
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
                   tabIndex="-1"
                   id="user-menu-item-0"
-                  >Your Profile</a
+                  >Your Profile</Link
                 >
-                <a
+                <Link
                   href="/saved-properties.html"
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
                   tabIndex="-1"
                   id="user-menu-item-2"
-                  >Saved Properties</a
+                  >Saved Properties</Link
                 >
                 <button
                   className="block px-4 py-2 text-sm text-gray-700"
@@ -179,20 +181,20 @@ const NavBar = () => {
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       <div className="hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          <a
+          <Link
             href="/index.html"
             className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Home</a
+            >Home</Link
           >
-          <a
+          <Link
             href="/properties.html"
             className="text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Properties</a
+            >Properties</Link
           >
-          <a
+          <Link
             href="/add-property.html"
             className="text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Add Property</a
+            >Add Property</Link
           >
           <button
             className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5"
