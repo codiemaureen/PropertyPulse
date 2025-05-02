@@ -9,6 +9,8 @@ import { FaGoogle } from 'react-icons/fa';
 
 const NavBar = () => {
  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+
  return ( 
   <>
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -134,6 +136,7 @@ const NavBar = () => {
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"
+                  onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                 >
                   <span className="absolute -inset-1.5"></span>
                   <span className="sr-only">Open user menu</span>
