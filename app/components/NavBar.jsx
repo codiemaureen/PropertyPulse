@@ -2,7 +2,7 @@ import logo from '@/assets/images/logo-white.png';
 import Image from 'next/image';
 import profileDefault from '@/assets/images/profile.png';
 import Link from 'next/link';
-import { faGoogle } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const NavBar = () => {
@@ -82,7 +82,7 @@ const NavBar = () => {
               <button
                 className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
               >
-                <faGoogle className='text-white mr-2' />
+                <FaGoogle className='text-white mr-2' />
                 <span>Login or Register</span>
               </button>
             </div>
