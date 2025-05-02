@@ -56,17 +56,17 @@ const NavBar = () => {
             <div className="hidden md:ml-6 md:block">
               <div className="flex space-x-2">
                 <Link
-                  href="/index.html"
+                  href="/"
                   className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                   >Home</Link
                 >
                 <Link
-                  href="/properties.html"
+                  href="/properties"
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                   >Properties</Link
                 >
                 <Link
-                  href="/add-property.html"
+                  href="/properties/add"
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                   >Add Property</Link
                 >
