@@ -1,5 +1,6 @@
 'use client';
 import  { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import logo from '@/assets/images/logo-white.png';
 import Image from 'next/image';
 import profileDefault from '@/assets/images/profile.png';
@@ -11,6 +12,7 @@ const NavBar = () => {
  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
+ const pathName = usePathname();
  return ( 
   <>
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -65,17 +67,17 @@ const NavBar = () => {
               <div className="flex space-x-2">
                 <Link
                   href="/"
-                  className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={ `${pathName === '/' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2` }
                   >Home</Link
                 >
                 <Link
                   href="/properties"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={ `${pathName === '/properties' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2` }
                   >Properties</Link
                 >
                 <Link
                   href="/properties/add"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={ `${pathName === '/properties/add' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2` }
                   >Add Property</Link
                 >
               </div>
@@ -195,17 +197,17 @@ const NavBar = () => {
           <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
               href="/"
-              className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={ `${ pathName === '/' ? 'bg-black' : '' }  text-white block rounded-md px-3 py-2 text-base font-medium`  }
               >Home</Link
             >
             <Link
               href="/properties"
-              className="text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={ `${ pathName === '/properties' ? 'bg-black' : '' }  text-white block rounded-md px-3 py-2 text-base font-medium`  }
               >Properties</Link
             >
             <Link
               href="/properties/add"
-              className="text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={ `${ pathName === '/properties/add' ? 'bg-black' : '' }  text-white block rounded-md px-3 py-2 text-base font-medium`  }
               >Add Property</Link
             >
             <button
