@@ -182,17 +182,17 @@ const NavBar = () => {
       <div className="hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
           <Link
-            href="/index.html"
+            href="/"
             className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
             >Home</Link
           >
           <Link
-            href="/properties.html"
+            href="/properties"
             className="text-white block rounded-md px-3 py-2 text-base font-medium"
             >Properties</Link
           >
           <Link
-            href="/add-property.html"
+            href="/properties/add"
             className="text-white block rounded-md px-3 py-2 text-base font-medium"
             >Add Property</Link
           >
