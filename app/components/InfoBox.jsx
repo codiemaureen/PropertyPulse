@@ -1,6 +1,8 @@
+import InfoBoxes from "./InfoBoxes";
+
 const InfoBox = () => {
  return ( <div>
-  Info Box
+  <InfoBoxes />
  </div> );
 }
  
