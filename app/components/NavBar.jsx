@@ -149,9 +149,10 @@ const NavBar = () => {
               </div>
 
               {/* <!-- Profile dropdown --> */}
+            {isProfileMenuOpen && (
               <div
                 id="user-menu"
-                className="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
@@ -182,6 +183,7 @@ const NavBar = () => {
                   Sign Out
                 </button>
               </div>
+            )}
             </div>
           </div>
         </div>
@@ -189,31 +191,32 @@ const NavBar = () => {
 
       {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       {isMobileMenuOpen && (
-      <div id="mobile-menu">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          <Link
-            href="/"
-            className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Home</Link
-          >
-          <Link
-            href="/properties"
-            className="text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Properties</Link
-          >
-          <Link
-            href="/properties/add"
-            className="text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Add Property</Link
-          >
-          <button
-            className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5"
-          >
-            <i className="fa-brands fa-google mr-2"></i>
-            <span>Login or Register</span>
-          </button>
-        </div>
-      </div> )}
+        <div id="mobile-menu">
+          <div className="space-y-1 px-2 pb-3 pt-2">
+            <Link
+              href="/"
+              className="bg-black text-white block rounded-md px-3 py-2 text-base font-medium"
+              >Home</Link
+            >
+            <Link
+              href="/properties"
+              className="text-white block rounded-md px-3 py-2 text-base font-medium"
+              >Properties</Link
+            >
+            <Link
+              href="/properties/add"
+              className="text-white block rounded-md px-3 py-2 text-base font-medium"
+              >Add Property</Link
+            >
+            <button
+              className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5"
+            >
+              <i className="fa-brands fa-google mr-2"></i>
+              <span>Login or Register</span>
+            </button>
+          </div>
+        </div> 
+      )}
     </nav>  
   </>
   );
