@@ -4,59 +4,62 @@ import { FaBed, FaBath, FaRulerCombined, FaMoneyBill, FaMapMarker } from "react-
 
 const PropertyCard = ({property}) => {
  return ( 
-    <div class="rounded-xl shadow-md relative">
-      <img
-        src="images/properties/a1.jpg"
+    <div className="rounded-xl shadow-md relative">
+      <Image
+        src={`/properties/${property.images[0]}`}
         alt=""
-        class="w-full h-auto rounded-t-xl"
+        width='0'
+        height='0'
+        sizes="100vw"
+        className="w-full h-auto rounded-t-xl"
       />
-      <div class="p-4">
-        <div class="text-left md:text-center lg:text-left mb-6">
-          <h3 class="text-xl font-bold">{property.name}</h3>
+      <div className="p-4">
+        <div className="text-left md:text-center lg:text-left mb-6">
+          <h3 className="text-xl font-bold">{property.name}</h3>
         </div>
         <h3
-          class="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right"
+          className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right"
         >
           {property.rates.monthly}/mo
         </h3>
 
-        <div class="flex justify-center gap-4 text-gray-500 mb-4">
+        <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i class="fa-solid fa-bed"></i> 3
-            <span class="md:hidden lg:inline">{property.beds} Beds</span>
+            <i className="fa-solid fa-bed"><FaBed/></i> 
+            <span className="md:hidden lg:inline">{property.beds} </span>
           </p>
           <p>
-            <i class="fa-solid fa-bath"></i> 2
-            <span class="md:hidden lg:inline">{property.baths} Baths</span>
+            <i className="fa-solid fa-bath"><FaBath/> </i> 
+            <span className="md:hidden lg:inline">{property.baths}</span>
           </p>
           <p>
-            <i class="fa-solid fa-ruler-combined"></i>
-            1,500 <span class="md:hidden lg:inline">sqft</span>
+            <i className="fa-solid fa-ruler-combined"><FaRulerCombined/></i>
+            <span className="md:hidden lg:inline">{property.square_feet}</span>
           </p>
         </div>
 
         <div
-          class="flex justify-center gap-4 text-green-900 text-sm mb-4"
+          className="flex justify-center gap-4 text-green-900 text-sm mb-4"
         >
-          <p><i class="fa-solid fa-money-bill"></i>{property.rates.weekly} Weekly</p>
-          <p><i class="fa-solid fa-money-bill"></i>{property.rates.monthly} Monthly</p>
+          <p><i className="fa-solid fa-money-bill"></i>{property.rates.weekly} Weekly</p>
+          <p><i className="fa-solid fa-money-bill"></i>{property.rates.monthly} Monthly</p>
         </div>
 
-        <div class="border border-gray-100 mb-5"></div>
+        <div className="border border-gray-100 mb-5"></div>
 
-        <div class="flex flex-col lg:flex-row justify-between mb-4">
-          <div class="flex align-middle gap-2 mb-4 lg:mb-0">
+        <div className="flex flex-col lg:flex-row justify-between mb-4">
+          <div className="flex align-middle gap-2 mb-4 lg:mb-0">
             <i
-              class="fa-solid fa-location-dot text-lg text-orange-700"
+              className="fa-solid fa-location-dot text-lg text-orange-700"
             ></i>
-            <span class="text-orange-700"> {property.location.city} {property.location.state} </span>
+            <span className="text-orange-700"> {property.location.city} {property.location.state} </span>
           </div>
-          <a
-            href="property.html"
-            class="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
+          <Link
+            href="property"
+            className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
