@@ -3,6 +3,16 @@ import Link from "next/link";
 import { FaBed, FaBath, FaRulerCombined, FaMoneyBill, FaMapMarker } from "react-icons/fa";
 
 const PropertyCard = ({property}) => {
+ const getRateDisplay = () => {
+  const { rates } = property;
+  if (rates.monthly){
+   return `$${rates.monthly.toLocaleString()}/mo`
+  } else if (rates.weekly){
+   return `$${rates.weekly.toLocaleString()}/wk`
+  } else if (rates.nightly){
+   return `$${rates.nightly.toLocaleString()}/night`
+  }
+ }
  return ( 
     <div className="rounded-xl shadow-md relative">
       <Image
@@ -10,48 +20,46 @@ const PropertyCard = ({property}) => {
         alt=""
         width='0'
         height='0'
-        sizes="100vw"
+        sizes="100vww"
         className="w-full h-auto rounded-t-xl"
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
+          <div className="text-gray-600">{property.type}</div>
           <h3 className="text-xl font-bold">{property.name}</h3>
         </div>
         <h3
           className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right"
         >
-          {property.rates.monthly}/mo
+          {getRateDisplay()}
         </h3>
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i className="fa-solid fa-bed"><FaBed/></i> 
-            <span className="md:hidden lg:inline">{property.beds} </span>
+            <FaBed className="fa-solid fa-bed"/>
+            <span className="md:hidden lg:inline">{property.beds}{' '} </span>
           </p>
           <p>
-            <i className="fa-solid fa-bath"><FaBath/> </i> 
-            <span className="md:hidden lg:inline">{property.baths}</span>
+            <FaBath className="fa-solid fa-bath"/> 
+            <span className="md:hidden lg:inline">{property.baths}{' '}</span>
           </p>
           <p>
-            <i className="fa-solid fa-ruler-combined"><FaRulerCombined/></i>
-            <span className="md:hidden lg:inline">{property.square_feet}</span>
+            <FaRulerCombined className="fa-solid fa-ruler-combined"/>
+            <span className="md:hidden lg:inline">{property.square_feet}{' '}</span>
           </p>
         </div>
 
         <div
           className="flex justify-center gap-4 text-green-900 text-sm mb-4"
         >
-          <p><i className="fa-solid fa-money-bill"></i>{property.rates.weekly} Weekly</p>
-          <p><i className="fa-solid fa-money-bill"></i>{property.rates.monthly} Monthly</p>
+          <p><FaMoneyBill className="fa-solid fa-money-bill"/></p>{getRateDisplay()}
         </div>
 
         <div className="border border-gray-100 mb-5"></div>
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="flex align-middle gap-2 mb-4 lg:mb-0">
-            <i
-              className="fa-solid fa-location-dot text-lg text-orange-700"
-            ></i>
+            <FaMapMarker className="fa-solid fa-location-dot text-lg text-orange-700 mt-1"/>
             <span className="text-orange-700"> {property.location.city} {property.location.state} </span>
           </div>
           <Link
