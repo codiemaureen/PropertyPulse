@@ -11,7 +11,7 @@ export const metadata = {
 
 const MainLayout = ({children}) => {
  return (<html>
-  <body className='bg-white-100'>
+  <body className='bg-white-500'>
    <main>
     <NavBar />
     {children}
