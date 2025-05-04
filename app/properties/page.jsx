@@ -11,10 +11,10 @@ const PropertiesPage = () => {
     { properties.length === 0 ? (<p>no properties found</p>) : (
      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
       {properties.map((property) => (
-       <div><PropertyCard property={property} /></div>
+       <div key={property._id}><PropertyCard property={property}/></div>
       ))}
      </div>
-    ) }
+    )}
    </div>
   </section>
  );
