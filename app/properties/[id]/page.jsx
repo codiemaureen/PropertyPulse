@@ -1,7 +1,7 @@
 const PropertyPage = ({ params }) => {
 
  return ( <div>
-  Property page {params.id}
+  Property page
  </div> );
 }
  
