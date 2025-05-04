@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Hero from "./components/Hero";
-import InfoBox from "./components/InfoBox";
+import InfoBoxes from "./components/InfoBoxes";
 
 const HomePage = () => {
  return ( <div>
   <Hero />
-  <InfoBox />
+  <InfoBoxes />
 </div> );
 }
 
