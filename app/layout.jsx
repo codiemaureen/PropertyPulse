@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 
 
 export const metadata = {
- title: 'Property Pulse',
+ title: 'Realty Drift',
  keywords: 'rental, property, real estate',
  description: 'find the perfect rental property'
 }
