@@ -4,7 +4,6 @@ import HomeProperties from "./components/HomeProperties";
 
 
 const HomePage = () => {
-  connectDB();
   return ( 
     <div>
       <Hero />
