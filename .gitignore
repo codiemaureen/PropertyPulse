@@ -28,7 +28,7 @@ package-lock.json
 #local env files
 .env*.local
 .env
-_theme-files
+_theme_files
 
 # debug
 npm-debug.log*
