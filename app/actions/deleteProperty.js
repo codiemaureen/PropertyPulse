@@ -31,7 +31,7 @@ async function deleteProperty(propertyId) {
 
  if(publicIds.length > 0) {
   for(let publicId of publicIds){
-   await cloudinary.uploader.destroy('propertyPulse/' + publicId);
+   await cloudinary.uploader.destroy('realtydrift/' + publicId);
   }
  }
  await property.deleteOne();
