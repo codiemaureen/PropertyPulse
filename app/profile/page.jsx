@@ -6,6 +6,14 @@ import { getSessionUser } from "@/utils/getSessionUser";
 import profileDefault from '@/assets/images/profile.png';
 
 const ProfilePage = async ({}) => {
+ await connectDB();
+ const sessionUser = await getSessionUser();
+
+ const {userId} = sessionUser;
+
+ if(!userId){
+  throw new Error('User Id is required');
+ }
 
  return ( 
   <section className="bg-blue-50">
@@ -17,14 +25,14 @@ const ProfilePage = async ({}) => {
           <div className="mb-4">
             <Image
               className="h-32 w-32 md:h-48 md:w-48 rounded-full mx-auto md:mx-0"
-              src="/images/profile.png"
+              src={sessionUser.user.image || profileDefault}
               alt="User"
               width={40}
               height={40}
             />
           </div>
-          <h2 className="text-2xl mb-4"><span className="font-bold block">Name: </span> John Doe</h2>
-          <h2 className="text-2xl"><span className="font-bold block">Email: </span> john@gmail.com</h2>
+          <h2 className="text-2xl mb-4"><span className="font-bold block">Name: </span> {sessionUser.user.name}</h2>
+          <h2 className="text-2xl"><span className="font-bold block">Email: </span> {sessionUser.user.email}</h2>
         </div>
 
         <div className="md:w-3/4 md:pl-4">
@@ -35,8 +43,8 @@ const ProfilePage = async ({}) => {
                 className="h-32 w-full rounded-md object-cover"
                 src="/images/properties/a1.jpg"
                 alt="Property 1"
-                width={40}
-                height={40}
+                width={200}
+                height={200}
               />
             </Link>
             <div className="mt-2">
@@ -61,7 +69,7 @@ const ProfilePage = async ({}) => {
             <Link href="/property">
               <Image
                 className="h-32 w-full rounded-md object-cover"
-                src="/images/properties/b1.jpg"
+                src="/images/properties/a1.jpg"
                 alt="Property 2"
                 width={40}
                 height={40}
