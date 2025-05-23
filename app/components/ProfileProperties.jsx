@@ -6,7 +6,7 @@ import Image from "next/image";
 const ProfileProperties = ({properties: initialProperties}) => {
  const [properties, setProperties] = useState(initialProperties);
  return properties.map((property) => (
-            <div className="mb-10">
+            <div key={property._id}className="mb-10">
               <Link href="/property">
                 <Image
                   className="h-32 w-full rounded-md object-cover"
