@@ -38,7 +38,7 @@ const ProfileProperties = ({properties: initialProperties}) => {
                 <p className="text-gray-600">{property.location.street}, {property.location.state} {property.location.zipcode}</p>
               </div>
               <div className="mt-2">
-                <Link href="/add-property"
+                <Link href={`/properties/${property._id}/edit`}
                   className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
                 >
                   Edit
