@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { setDefaults, fromAddress } from "react-geocode";
 import Map, {Marker} from 'react-map-gl/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import Image from "next/image";
 import pin from '@/assets/images/pin.svg';
 import Spinner from "./Spinner";
@@ -59,8 +60,21 @@ const PropertyMap = ({property}) => {
   return <div className="texl-xl">No Locationn data found</div>
  }
  return ( 
-  <div>map</div>
-  );
+  !loading &&  (
+    <Map
+    mapLib={import('mapbox-gl')}
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+      initialViewState={{
+        longitude: long,
+        latitude: lat,
+        zoom: 3.5
+      }}
+      style={{width: 600, height: 400}}
+      mapStyle="mapbox://styles/mapbox/streets-v9"
+    ><Marker longitude={long} latitude={lat} anchor="bottom">
+      <Image src={pin} alt="locaton-marker" width={40} height={40}/>
+    </Marker></Map>
+  ))
 }
 
 export default PropertyMap;
