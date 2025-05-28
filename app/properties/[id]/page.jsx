@@ -7,6 +7,8 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { convertToSerializableObject } from "@/utils/convertToObject";
 import BookmarkButton from "@/app/components/BookmarkButton";
+import ShareButton from "@/app/components/ShareButton";
+import PropertyContactForm from "@/app/components/PropertyContactForm";
 
 
 const PropertyPage = async ({ params }) => {
@@ -37,7 +39,9 @@ const PropertyPage = async ({ params }) => {
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
             <PropertyDetails property={property}/>
             <aside className="space-y-4">
-              <BookmarkButton />
+              <BookmarkButton property={property}/>
+              <ShareButton property={property}/>
+              <PropertyContactForm property={property}/>
             </aside>
           </div>    
         </div>    
