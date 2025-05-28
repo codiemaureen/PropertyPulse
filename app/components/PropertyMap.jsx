@@ -1,6 +1,10 @@
 'use client';
 import { useEffect, useState } from "react";
 import { setDefaults, fromAddress } from "react-geocode";
+import Map, {Marker} from 'react-map-gl/mapbox';
+import Image from "next/image";
+import pin from '@/assets/images/pin.svg';
+import Spinner from "./Spinner";
 
 
 const PropertyMap = ({property}) => {
@@ -49,7 +53,7 @@ const PropertyMap = ({property}) => {
  }, []);
 
  if(loading){
-  return <h3>loading...</h3>;
+  return <Spinner/>
  }
  if(geocodeError){
   return <div className="texl-xl">No Locationn data found</div>
