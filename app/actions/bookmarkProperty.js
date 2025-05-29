@@ -7,6 +7,8 @@ import { revalidatePath } from "next/cache";
 async function bookmarkProperty(propertyId) {
  await connectDB();
 
+ const sessionUser = await getSessionUser();
+
  if(!sessionUser || !sessionUser.userId){
   throw new Error('User not found');
  }
