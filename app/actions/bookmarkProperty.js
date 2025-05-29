@@ -4,8 +4,35 @@ import User from "@/models/Users";
 import { getSessionUser } from "@/utils/getSessionUser";
 import { revalidatePath } from "next/cache";
 
-async function bookmarkProperty(params) {
+async function bookmarkProperty(propertyId) {
+ await connectDB();
+
+ if(!sessionUser || !sessionUser.userId){
+  throw new Error('User not found');
+ }
+ const { userId } = sessionUser;
  
+ const user = await User.findById(userId);
+
+ const isBookmarked = user.bookmarks.includes(propertyId)
+
+ if(isBookmarked){
+  user.bookmarks.pull(propertyId);
+  message = 'Bookmark Removed'
+  isBookmarked = false;
+ } else{
+  user.bookmarks.push(propertyId);
+  message = "Bookmark Added";
+  isBookmarked = true;
+ }
+
+ await user.save();
+ revalidatePath('/properties/saved', 'page');
+
+ return{
+  message,
+  isBookmarked,
+ }
 }
 
 export default bookmarkProperty;
