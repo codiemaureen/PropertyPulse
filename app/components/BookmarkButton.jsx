@@ -13,7 +13,7 @@ const BookmarkButton = ({property}) => {
       toast.error('User must log in to bookmark a listing');
       return;
     }
-    bookmarkProperty().then((res) => {
+    bookmarkProperty(property._id).then((res) => {
       if(res.error){
         return toast.error(res.error)
       }
