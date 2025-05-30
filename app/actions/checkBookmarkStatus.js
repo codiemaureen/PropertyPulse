@@ -2,12 +2,11 @@
 import connectDB from "@/config/database";
 import User from "@/models/Users";
 import { getSessionUser } from "@/utils/getSessionUser";
-import { revalidatePath } from "next/cache";
 
-async function checkBookmarkStatus(params) {
+async function checkBookmarkStatus(propertyId) {
  await connectDB();
 
- const sessionUser = getSessionUser();
+ const sessionUser = await getSessionUser();
 
  if(!sessionUser || !sessionUser.userId){
   throw new Error('User must be logged in to bookmark')
@@ -15,7 +14,7 @@ async function checkBookmarkStatus(params) {
 
  const {userId} = sessionUser;
 
- const user = User.findById(userId);
+ const user = await User.findById(userId);
 
  let isBookmarked = user.bookmarks.includes(propertyId);
 
