@@ -30,11 +30,10 @@ const messageSchema = new Schema({
  read: {
   type: Boolean,
   default: false
- },
- {
-  timestamps: true
  }
-
+},
+{
+ timestamps: true
 })
 
 const Message = models.Message || model('Message', messageSchema);
