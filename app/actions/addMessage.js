@@ -1,6 +1,6 @@
 'use server';
 import connectDB from "@/config/database";
-import Messgae from "@/models/Message";
+import Message from "@/models/Message";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 
@@ -19,7 +19,7 @@ async function addMessage(formData) {
   return {error: 'You cannot send a message to yourself'}
  };
 
- const newMessage = new Messgae({
+ const newMessage = new Message({
   sender: userId,
   recipient,
   property: formData.get('property'),
