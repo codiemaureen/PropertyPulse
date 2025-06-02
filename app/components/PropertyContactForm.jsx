@@ -80,6 +80,7 @@ const PropertyContactForm = ({property}) => {
           <input
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             id='phone'
+            name='phone'
             type='text'
             placeholder='Enter your phone number'
           />
@@ -94,6 +95,7 @@ const PropertyContactForm = ({property}) => {
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 h-44 focus:outline-none focus:shadow-outline"
             id="message"
+            name="message"
             placeholder="Enter your message"
           ></textarea>
         </div>
