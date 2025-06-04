@@ -7,11 +7,11 @@ import { convertToSerializableObject } from "@/utils/convertToObject";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 
-const SearchResults = async ({ props }) => {
-  const searchParams = await props.searchParams;
+
+const SearchResults = async ({ searchParams }) => {
   let { location, propertyType } = await searchParams;
   await connectDB();
-
+  
   const locationPattern = new RegExp(location, 'i');
 
   let query = {
